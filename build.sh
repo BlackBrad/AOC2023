@@ -17,4 +17,6 @@ elif [ $1 == "clean" ]; then
     $DOCKER_COMMAND sh -c "/inside.sh clean"
 elif [ $1 == "run" ]; then
     $DOCKER_COMMAND sh -c "/inside.sh run"
+elif [ $1 == "shell" ]; then
+    $DOCKER_COMMAND /bin/sh
 fi
