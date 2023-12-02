@@ -6,3 +6,5 @@ RUN apk add build-base
 RUN apk add make
 RUN apk add cmake
 RUN apk add gfortran
+
+COPY ./inside.sh /inside.sh
