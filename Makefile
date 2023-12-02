@@ -7,6 +7,7 @@ all:
 examples_target:
 	$(FC) $(FFLAGS) ./examples/hello.f95 -o ./hello.out
 	$(FC) $(FFLAGS) ./examples/hello_world.f95 -o ./hello_world.out
+	$(FC) $(FFLAGS) ./examples/palindrome.f95 -o ./palindrome.out
 
 clean:
 	rm *.out
