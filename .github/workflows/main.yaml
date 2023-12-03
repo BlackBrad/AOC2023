@@ -1,0 +1,16 @@
+name: Pipeline
+on: [push, pull_request]
+
+jobs:
+  build-examples:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/blackbrad/aoc2023:v3
+      volumes:
+        - ${{ github.worspace}}:/aoc
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ github.TOKEN_GITHUB }}
+      steps:
+        - users: actions/checkout@v3
+        - run: inside.sh examples
