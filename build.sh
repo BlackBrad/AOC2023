@@ -13,6 +13,8 @@ DOCKER_COMMAND="docker run -v "$FULL_MOUNT" -it $FULL_DOCKER_IMAGE"
 
 if [ $1 == "build" ]; then
     $DOCKER_COMMAND sh -c "/inside.sh build"
+elif [ $1 == "examples" ]; then
+    $DOCKER_COMMAND sh -c "/inside.sh examples"
 elif [ $1 == "clean" ]; then
     $DOCKER_COMMAND sh -c "/inside.sh clean"
 elif [ $1 == "run" ]; then
