@@ -12,7 +12,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ github.TOKEN_GITHUB }}
       steps:
-        - users: actions/checkout@v3
+        - uses: actions/checkout@v3
         - run: inside.sh examples
 
   build-days:
@@ -25,7 +25,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ github.TOKEN_GITHUB }}
       steps:
-        - users: actions/checkout@v3
+        - uses: actions/checkout@v3
         - run: inside.sh build
 
   build-tests:
@@ -38,5 +38,5 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ github.TOKEN_GITHUB }}
       steps:
-        - users: actions/checkout@v3
+        - uses: actions/checkout@v3
         - run: inside.sh tests
