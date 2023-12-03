@@ -24,7 +24,9 @@ setup
 end setup
 
 teardown
-    print *, "Hello"
+    open(1, file="test.dat")
+    close(1, status="delete")
+    print *, "BRADLEY"
 end teardown
 
 test test_get_file_size
@@ -33,6 +35,17 @@ test test_get_file_size
     gotten_size = get_file_size(fake_file_name)
 
     assert_equal(gotten_size, fake_file_size)
+end test
+
+test test_read_file
+    character (len=255), pointer :: file_data (:)
+    integer :: gotten_size, file_data_size
+
+    gotten_size = read_file(fake_file_name, file_data)
+
+    assert_equal(gotten_size, fake_file_size)
+    assert_equal(size(file_data), fake_file_size)
+
 end test
 
 end test_suite
