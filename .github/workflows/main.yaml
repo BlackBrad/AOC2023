@@ -2,41 +2,29 @@ name: Pipeline
 on: [push, pull_request]
 
 jobs:
-  build-examples:
+  build-assembler:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/blackbrad/aoc2023:v3
+      image: ghcr.io/blackbrad/aoc:v3
       volumes:
-        - ${{ github.worspace}}:/workspace
+        - ${{ github.workspace }}:/workspace
       credentials:
         username: ${{ github.actor }}
-        password: ${{ github.TOKEN_GITHUB }}
-      steps:
-        - uses: actions/checkout@v3
-        - run: inside.sh examples
+        password: ${{ secrets.TOKEN_GITHUB }}
+    steps:
+    - uses: actions/checkout@v3
+    - run: /inside.sh build
 
-  build-days:
+  build-unit-tests:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/blackbrad/aoc2023:v3
+      image: ghcr.io/blackbrad/aoc:v3
       volumes:
-        - ${{ github.worspace}}:/workspace
+        - ${{ github.workspace }}:/build
       credentials:
         username: ${{ github.actor }}
-        password: ${{ github.TOKEN_GITHUB }}
-      steps:
-        - uses: actions/checkout@v3
-        - run: inside.sh build
-
-  build-tests:
-    runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/blackbrad/aoc2023:v3
-      volumes:
-        - ${{ github.worspace}}:/workspace
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ github.TOKEN_GITHUB }}
-      steps:
-        - uses: actions/checkout@v3
-        - run: inside.sh tests
+        password: ${{ secrets.TOKEN_GITHUB }}
+    steps:
+      - uses: actions/checkout@v3
+      # Ignore warnings about dubious errors when updating submodules
+      - run: /inside.sh test
