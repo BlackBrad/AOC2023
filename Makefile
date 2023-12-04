@@ -23,6 +23,7 @@ examples_target:
 clean:
 	rm *.out
 	rm *.o
+	rm *.mod
 
 clean_test:
 	cd ./utils && $(UNIT_TEST_CLEAN); rm *.o; rm *.mod;  cd ..
