@@ -1,6 +1,7 @@
 FC = gfortran
 FFLAGS = -Wall -Wno-unused-variable -g -fcheck=all -cpp
 UNIT_TEST = funit
+UNIT_TEST_CLEAN = $(UNIT_TEST) --clean
 
 all:
 	# Build the file helpers module
@@ -9,7 +10,7 @@ all:
 
 test_target:
 	# Run the unit tests
-	cd utils/ && $(UNIT_TEST) file_helpers
+	cd ./utils && $(UNIT_TEST); cd ..
 
 examples_target:
 	$(FC) $(FFLAGS) ./examples/hello.f95 -o ./hello.out
@@ -19,3 +20,6 @@ examples_target:
 clean:
 	rm *.out
 	rm *.o
+
+clean_test:
+	cd ./utils && $(UNIT_TEST_CLEAN) ; cd ..

@@ -9,7 +9,7 @@ if [ $1 == "build" ]; then
     make
 elif [ $1 == "examples" ]; then
     make examples_target
-elif [$1 == "test_target" ]; then
+elif [ $1 == "test" ]; then
     make test_target
 elif [ $1 == "clean" ]; then
     make clean
