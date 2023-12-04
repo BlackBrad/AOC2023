@@ -1,7 +1,8 @@
-#define FILE_PATH "day1/example.txt"
 
 #ifdef REAL_INPUT
 #define FILE_PATH "day1/real.txt"
+#else
+#define FILE_PATH "day1/example.txt"
 #endif
 
 program day1
