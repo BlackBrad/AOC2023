@@ -1,11 +1,9 @@
 module file_helpers
-    use iso_fortran_env
-
     implicit none
 
     contains
         integer function read_file(file_path, file_data)
-            character (len=255) :: file_path ! in
+            character (len=*) :: file_path ! in
             character (len=255), pointer :: file_data(:) ! out
             integer :: file_size, i
 
@@ -18,19 +16,19 @@ module file_helpers
 
             rewind(1)
 
-            do i=0, file_size-1
+            do i=1, file_size
                 read(1, "(a)") file_data(i)
             end do
 
             close(1)
 
             read_file = file_size
-
         end function
 
         integer function get_file_size(file_path)
             integer :: file_descriptor = 1
-            character (len=255) :: file_path, buffer
+            character (len=*) :: file_path
+            character (len=255) :: buffer
             integer :: file_size, ios
 
             file_size = 0
@@ -51,12 +49,5 @@ module file_helpers
             close(file_descriptor)
 
             get_file_size = file_size
-
-        end function
-
-        integer function read_file_contents(file_path)
-            character (len = 255) :: file_path
-
-            read_file_contents = 0
         end function
 end module file_helpers
