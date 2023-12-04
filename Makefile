@@ -4,9 +4,12 @@ UNIT_TEST = funit
 UNIT_TEST_CLEAN = $(UNIT_TEST) --clean
 
 all:
-	# Build the file helpers module
+	# Build the utils
 	$(FC) $(FFLAGS) -c ./utils/file_helpers.f90
-	$(FC) $(FFLAGS) ./day1/day1.f95 ./file_helpers.o -o ./day1.out
+	$(FC) $(FFLAGS) -c ./utils/string_utils.f90
+
+	# Now build the assignment for each day
+	$(FC) $(FFLAGS) ./day1/day1.f95 ./file_helpers.o ./string_utils.o -o ./day1.out
 
 test_target:
 	# Run the unit tests
@@ -22,4 +25,4 @@ clean:
 	rm *.o
 
 clean_test:
-	cd ./utils && $(UNIT_TEST_CLEAN) ; cd ..
+	cd ./utils && $(UNIT_TEST_CLEAN); rm *.o; rm *.mod;  cd ..
