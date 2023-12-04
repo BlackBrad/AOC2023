@@ -2,7 +2,7 @@ name: Pipeline
 on: [push, pull_request]
 
 jobs:
-  build-assembler:
+  build-assignments:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/blackbrad/aoc2023:v3
@@ -20,7 +20,7 @@ jobs:
     container:
       image: ghcr.io/blackbrad/aoc2023:v3
       volumes:
-        - ${{ github.workspace }}:/build
+        - ${{ github.workspace }}:/workspace
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.TOKEN_GITHUB }}
@@ -28,3 +28,16 @@ jobs:
       - uses: actions/checkout@v3
       # Ignore warnings about dubious errors when updating submodules
       - run: /inside.sh test
+
+  build-examples:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/blackbrad/aoc2023:v3
+      volumes:
+        - ${{ github.workspace }}:/workspace
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.TOKEN_GITHUB }}
+    steps:
+      - uses: actions/checkout@v3
+      - run: /inside.sh examples
