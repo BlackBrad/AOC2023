@@ -14,7 +14,6 @@ program day1
     logical :: is_digit_result
     character (len=255) :: temp_string
     character :: digit1, digit2
-    !integer :: digit1, digit2, char_as_int
     integer, dimension(:), allocatable :: all_integers
     integer :: new_int, total_value
     character (len=2) :: another_string
@@ -33,8 +32,6 @@ program day1
             is_digit_result = is_digit(file_data(i)(j:j))
 
             if (is_digit_result) then
-                !read(file_data(i)(j:j), '(i1)') char_as_int
-
                 if (digit1 == '!') then
                     digit1 = file_data(i)(j:j)
                 else
