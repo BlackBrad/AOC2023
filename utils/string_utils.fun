@@ -127,4 +127,103 @@ test test_is_digit_exlaim
     assert_true(is_digit_result .eqv. .FALSE.)
 end test
 
+test test_string_digit_to_int_one
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "one"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 1)
+end test
+
+test test_string_digit_to_int_two
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "two"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 2)
+end test
+
+test test_string_digit_to_int_three
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "three"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 3)
+end test
+
+test test_string_digit_to_int_four
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "four"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 4)
+end test
+
+test test_string_digit_to_int_five
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "five"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 5)
+end test
+
+test test_string_digit_to_int_six
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "six"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 6)
+end test
+
+test test_string_digit_to_int_seven
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "seven"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 7)
+end test
+
+test test_string_digit_to_int_eight
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "eight"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 8)
+end test
+
+test test_string_digit_to_int
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "nine"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 9)
+end test
+
 end test_suite
