@@ -5,6 +5,19 @@
 #define FILE_PATH "day1/example.txt"
 #endif
 
+module day1_helpers
+    contains
+        character function check_three_letters(string)
+            character (len = 3) :: string
+            character :: return_val
+
+            return_val = "!"
+
+            check_three_letters = return_val
+
+        end function
+end module day1_helpers
+
 program day1
     use file_helpers
     use string_utils
