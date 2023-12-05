@@ -5,19 +5,19 @@ module string_utils
         logical function is_digit(ch)
             character :: ch ! in
             logical :: return_val ! return out
-            character, dimension(10) :: valid_digits
-            integer :: i
+            integer :: char_as_int, ascii_0, ascii_9
 
-            valid_digits = (/'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'/)
+            ascii_0 = 48
+            ascii_9 = 57
+
 
             return_val = .FALSE.
 
-            do i = 1, size(valid_digits)
-                if (valid_digits(i) == ch) then
-                    return_val = .TRUE.
-                    exit
-                end if
-            end do
+            char_as_int = iachar(ch)
+
+            if (char_as_int >= ascii_0 .AND. char_as_int <= ascii_9) then
+                return_val = .TRUE.
+            endif
 
             is_digit = return_val
         end function
