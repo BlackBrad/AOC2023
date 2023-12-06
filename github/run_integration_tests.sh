@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 DIR=$(dirname $0)
 PASS_ALL_TESTS=0
