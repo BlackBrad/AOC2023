@@ -14,7 +14,6 @@ all:
 test_target:
 	# Run the unit tests
 	cd ./utils && $(UNIT_TEST); cd ..
-	cd ./day1 && $(UNIT_TEST); cd ..
 
 examples_target:
 	$(FC) $(FFLAGS) ./examples/hello.f95 -o ./hello.out
@@ -28,4 +27,3 @@ clean:
 
 clean_test:
 	cd ./utils && $(UNIT_TEST_CLEAN); rm *.o; rm *.mod;  cd ..
-	cd ./day1 && $(UNIT_TEST_CLEAN); rm *.o; rm *.mod;  cd ..
