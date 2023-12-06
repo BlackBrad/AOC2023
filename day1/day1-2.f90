@@ -10,9 +10,7 @@ program day1
     use day1_helpers
 
     character(len=255), pointer :: file_data (:)
-    integer :: file_size, i, j
-    logical :: is_digit_result, found_string_digit, found_int_digit
-    integer :: idigit1, idigit2, total_value, string_as_int
+    integer :: file_size, i, total_value
     integer, dimension(:), allocatable :: all_integers
 
     file_size = read_file(FILE_PATH, file_data)
@@ -20,8 +18,6 @@ program day1
     allocate(all_integers(file_size))
 
     total_value = 0
-    found_string_digit = .FALSE.
-    found_int_digit = .FALSE.
 
     do i = 1, file_size
         all_integers(i) = get_value_from_line(file_data(i))
