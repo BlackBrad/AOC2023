@@ -7,7 +7,7 @@ PASS_COUNT=0
 # Change to root AOC directory to we can run the integration tests
 cd $DIR/..
 
-for test in "./integration_tests/*.sh" ; do
+for test in "./integration_tests/"*.sh ; do
     $test
     RESULTS=$?
     if [[ $RESULT -ne 0 ]]; then
@@ -22,3 +22,5 @@ if [[ $RESULT -ne 0 ]]; then
 else
     echo "PASSED: $PASS_COUNT tests passed"
 fi
+
+exit $PASS_ALL_TESTS
