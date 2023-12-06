@@ -20,14 +20,12 @@ module day1_helpers
             do i = 1, len(trim(string))
                 is_digit_result = is_digit(string(i:i))
 
-                if (is_digit_result .AND. .not. found_string_digit) then
-                    found_int_digit = .TRUE.
+                if (is_digit_result) then
                     read(string(i:i), "(i1)") found_digit
                 else
                     string_as_int = string_digit_to_int(string(i:))
 
-                    if (string_as_int /=-1 .AND. .not. found_int_digit) then
-                        found_string_digit = .TRUE.
+                    if (string_as_int /=-1) then
                         found_digit = string_as_int
                     end if
                 end if
