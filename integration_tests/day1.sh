@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 DIR=$(dirname $0)
 DAY="day1"
@@ -12,7 +12,7 @@ cd $DIR/..
 
 RESULT=$(./$EXE)
 
-if [[ $RESULT == *$EXPECTED_RESULT ]]; then
+if [[ $RESULT == *$EXPECTED_RESULT ]] ; then
     echo "$DAY: PASSED"
 else
     echo "$DAY: FAILED"
