@@ -53,6 +53,5 @@ jobs:
         password: ${{ secrets.TOKEN_GITHUB }}
     steps:
       - uses: actions/checkout@v3
-      - run:
-        - /inside.sh build
-        - bash ./github/run_integration_tests.sh
+      - run: /inside.sh build
+      - run: bash ./github/run_integration_tests.sh
