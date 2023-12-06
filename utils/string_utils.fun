@@ -215,7 +215,7 @@ test test_string_digit_to_int_eight
     assert_equal(int_result, 8)
 end test
 
-test test_string_digit_to_int
+test test_string_digit_to_int_nine
     integer :: int_result
     character(len=10) :: test_value
 
@@ -224,6 +224,140 @@ test test_string_digit_to_int
     int_result = string_digit_to_int(test_value)
 
     assert_equal(int_result, 9)
+end test
+
+! Test string_digit_to_int works with exta characters on the end
+test test_string_digit_to_int_onea
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "onea"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 1)
+end test
+
+test test_string_digit_to_int_twobc
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "twobc"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 2)
+end test
+
+test test_string_digit_to_int_threedef
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "threedef"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 3)
+end test
+
+test test_string_digit_to_int_fourghij
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "fourghij"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 4)
+end test
+
+test test_string_digit_to_int_fivelmnop
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "fiveklmnop"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 5)
+end test
+
+test test_string_digit_to_int_sixabcd
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "sixabcd"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 6)
+end test
+
+test test_string_digit_to_int_seven123
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "seven123"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 7)
+end test
+
+test test_string_digit_to_int_eightacv45
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "eightacv45"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 8)
+end test
+
+test test_string_digit_to_int_nineone
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "nineone"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, 9)
+end test
+
+! Test invalid values for string_digit_to_int
+test test_string_digit_to_int_acbd
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "abcd"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, -1)
+end test
+
+test test_string_digit_to_int_1234
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "1234"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, -1)
+end test
+
+test test_string_digit_to_int_1
+    integer :: int_result
+    character(len=10) :: test_value
+
+    test_value = "1"
+
+    int_result = string_digit_to_int(test_value)
+
+    assert_equal(int_result, -1)
 end test
 
 end test_suite
