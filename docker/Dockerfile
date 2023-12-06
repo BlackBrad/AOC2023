@@ -8,6 +8,9 @@ RUN apk add gfortran
 RUN apk add gcc
 RUN apk add g++
 
+# We need bash to run the integration test bash scripts
+RUN apk add bash
+
 # Install the unit testing framework
 RUN apk add ruby
 RUN gem install funit
