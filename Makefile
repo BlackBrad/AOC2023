@@ -7,9 +7,11 @@ all:
 	# Build the utils
 	$(FC) $(FFLAGS) -c ./utils/file_helpers.f90
 	$(FC) $(FFLAGS) -c ./utils/string_utils.f90
+	$(FC) $(FFLAGS) -c ./utils/day1_helpers.f90
 
 	# Now build the assignment for each day
 	$(FC) $(FFLAGS) $(REAL_INPUT) ./day1/day1.f90 ./file_helpers.o ./string_utils.o -o ./day1.out
+	$(FC) $(FFLAGS) $(REAL_INPUT) ./day1/day1-2.f90 ./file_helpers.o ./string_utils.o day1_helpers.o -o ./day1-2.out
 
 test_target:
 	# Run the unit tests
