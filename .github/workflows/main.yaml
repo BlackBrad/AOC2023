@@ -5,7 +5,7 @@ jobs:
   build-assignments:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/blackbrad/aoc2023:v3
+      image: ghcr.io/blackbrad/aoc2023:v4
       volumes:
         - ${{ github.workspace }}:/workspace
       credentials:
@@ -18,7 +18,7 @@ jobs:
   build-unit-tests:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/blackbrad/aoc2023:v3
+      image: ghcr.io/blackbrad/aoc2023:v4
       volumes:
         - ${{ github.workspace }}:/workspace
       credentials:
@@ -32,7 +32,7 @@ jobs:
   build-examples:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/blackbrad/aoc2023:v3
+      image: ghcr.io/blackbrad/aoc2023:v4
       volumes:
         - ${{ github.workspace }}:/workspace
       credentials:
@@ -45,7 +45,7 @@ jobs:
   run-integration-tests:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/blackbrad/aoc2023:v3
+      image: ghcr.io/blackbrad/aoc2023:v4
       volumes:
         - ${{ github.workspace }}:/workspace
       credentials:
