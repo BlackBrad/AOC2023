@@ -6,7 +6,7 @@ module day1_helpers
             character (len = *) :: string ! in
             integer :: return_value ! out return
             integer :: digit1, digit2, string_as_int, found_digit
-            logical :: is_digit_result, found_string_digit, found_int_digit
+            logical :: is_digit_result,
             integer :: i
 
             digit1 = -1
@@ -14,8 +14,6 @@ module day1_helpers
             string_as_int = -1
             found_digit = -1
             is_digit_result = .FALSE.
-            found_string_digit = .FALSE.
-            found_int_digit = .FALSE.
 
             do i = 1, len(trim(string))
                 is_digit_result = is_digit(string(i:i))
