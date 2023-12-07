@@ -6,7 +6,7 @@ module day1_helpers
             character (len = *) :: string ! in
             integer :: return_value ! out return
             integer :: digit1, digit2, string_as_int, found_digit
-            logical :: is_digit_result,
+            logical :: is_digit_result
             integer :: i
 
             digit1 = -1
