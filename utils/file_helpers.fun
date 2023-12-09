@@ -26,7 +26,6 @@ end setup
 teardown
     open(1, file="test.dat")
     close(1, status="delete")
-    print *, "BRADLEY"
 end teardown
 
 test test_get_file_size

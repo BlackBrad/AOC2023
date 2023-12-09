@@ -92,7 +92,6 @@ test test_is_game_valid_4_false
     logical :: return_val
 
     return_val = is_game_substring_valid(1, 1, 20, "21 blue")
-    print *, return_val
 
     assert_false(return_val)
 end test
