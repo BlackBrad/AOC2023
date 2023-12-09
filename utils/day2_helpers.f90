@@ -10,7 +10,7 @@ module day2_helpers
             integer :: digit_1, digit_2, count_value
             logical :: is_digit_value
 
-            return_value = .FALSE.
+            return_value = .TRUE.
             is_digit_value = .FALSE.
             red_count = 0
             green_count = 0
@@ -24,25 +24,30 @@ module day2_helpers
                     is_digit_value = is_digit(game_substring(i:i))
 
                     if (is_digit_value) then
-                        if (digit_1 == -1) then
-                            count_value = string_digit_to_int(game_substring(i : i))
+                        if (count_value == 0) then
+                            read(game_substring(i : i), "(i1)") count_value
                         else
-                            count_value = (count_value * 10) + string_digit_to_int(game_substring(i : i))
+                            read(game_substring(i : i), "(i1)") digit_2
+                            count_value = (count_value * 10) + digit_2
                         end if
                     else
-                        if (game_substring(i : i + 3) == "red") then
+                        if (game_substring(i : i + 2) == "red") then
                             red_count = count_value
-                        else if (game_substring(i : i + 5) == "green") then
+                        else if (game_substring(i : i + 4) == "green") then
                             green_count = count_value
-                        else if (game_substring(i : i + 4) == "blue") then
+                        else if (game_substring(i : i + 3) == "blue") then
                             blue_count = count_value
                         end if
                     end if
                 end if
+
+                if (blue_count > 0 .OR. red_count > 0 .OR. green_count > 0) then
+                    count_value = 0
+                end if
             end do
 
-            if (red_count <= red_limit .AND. green_count <= green_limit .AND. blue_count <= blue_limit) then
-                return_value = .TRUE.
+            if (red_count > red_limit .OR. green_count > green_limit .OR. blue_count > blue_limit) then
+                return_value = .FALSE.
             end if
 
             is_game_substring_valid = return_value
