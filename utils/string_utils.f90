@@ -51,4 +51,21 @@ module string_utils
 
             string_digit_to_int = return_val
         end function
+
+        integer function count_char_in_string(string, ch)
+            character (len = *) string ! in
+            character :: ch            ! in
+            integer :: return_value    ! return out
+            integer :: i
+
+            return_value = 0
+
+            do i = 1, len(string)
+                if (string(i : i) == ch) then
+                    return_value = return_value + 1
+                end if
+            end do
+
+            count_char_in_string = return_value
+        end function
 end module string_utils

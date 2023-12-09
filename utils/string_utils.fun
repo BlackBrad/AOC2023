@@ -360,4 +360,44 @@ test test_string_digit_to_int_1
     assert_equal(int_result, -1)
 end test
 
+test test_count_char_in_string_1
+    integer :: int_result
+
+    int_result = count_char_in_string(";", ';')
+
+    assert_equal(int_result, 1)
+end test
+
+test test_count_char_in_string_2
+    integer :: int_result
+
+    int_result = count_char_in_string(";;", ';')
+
+    assert_equal(int_result, 2)
+end test
+
+test test_count_char_in_string_3
+    integer :: int_result
+
+    int_result = count_char_in_string(";;;;;;;;;;", ';')
+
+    assert_equal(int_result, 10)
+end test
+
+test test_count_char_in_string_4
+    integer :: int_result
+
+    int_result = count_char_in_string(";aaa;", ';')
+
+    assert_equal(int_result, 2)
+end test
+
+test test_count_char_in_string_5
+    integer :: int_result
+
+    int_result = count_char_in_string("aaa;aaa;aa", ';')
+
+    assert_equal(int_result, 2)
+end test
+
 end test_suite
