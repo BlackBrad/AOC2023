@@ -96,4 +96,12 @@ test test_is_game_valid_4_false
     assert_false(return_val)
 end test
 
+test test_is_game_string_valid_1
+    logical :: return_val
+
+    return_val = is_game_string_valid(1, 1, 20, "Game 1: 1 red, 1 green, 1 blue; 2 red, 2 green, 2 blue")
+
+    assert_true(return_val)
+end test
+
 end test_suite

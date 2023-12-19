@@ -52,4 +52,33 @@ module day2_helpers
 
             is_game_substring_valid = return_value
         end function
+
+    logical function is_game_string_valid(red_limit, green_limit, blue_limit, game_string)
+        integer :: red_limit, green_limit, blue_limit ! in
+        character (len = *) :: game_string ! out
+        logical :: return_value ! return out
+        integer :: i, colon_index, semicolon_index, start_index
+        character (len = 255) :: substringed_string, game_substring
+
+        return_value = .FALSE.
+
+        ! We want to skip over the game id so get it's index and substring it out
+        colon_index = get_first_character_index(game_string, " ")
+        substringed_string = game_string(semicolon_index : )
+
+        start_index = colon_index
+        do i = 1, len(substringed_string)
+            semicolon_index = get_first_character_index(game_substring, ";")
+            game_substring = substringed_string(start_index : semicolon_index)
+            start_index = semicolon_index
+
+            return_value = is_game_substring_valid(red_limit, green_limit, blue_limit, game_substring)
+
+            if (return_value .eqv. .FALSE.) then
+                exit
+            end if
+        end do
+
+        is_game_string_valid = return_value
+    end function
 end module
