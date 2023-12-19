@@ -68,4 +68,21 @@ module string_utils
 
             count_char_in_string = return_value
         end function
+
+        integer function get_first_character_index(string, ch)
+            character (len = *) string ! in
+            character :: ch            ! in
+            integer :: return_value    ! return out
+            integer :: i
+
+            return_value = 0
+
+            do i = 0, len(string)
+                if (string(i : i) == ch) then
+                    return_value = i
+                end if
+            end do
+
+            get_first_character_index = return_value
+        end function
 end module string_utils

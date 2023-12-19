@@ -400,4 +400,28 @@ test test_count_char_in_string_5
     assert_equal(int_result, 2)
 end test
 
+test test_get_first_character_index_1
+    integer :: int_result
+
+    int_result = get_first_character_index(";", ';')
+
+    assert_equal(int_result, 1)
+end test
+
+test test_get_first_character_index_2
+    integer :: int_result
+
+    int_result = get_first_character_index(" ;", ';')
+
+    assert_equal(int_result, 2)
+end test
+
+test test_get_first_character_index_3
+    integer :: int_result
+
+    int_result = get_first_character_index("abcdefg;", ';')
+
+    assert_equal(int_result, 8)
+end test
+
 end test_suite
