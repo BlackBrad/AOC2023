@@ -72,6 +72,30 @@ test test_is_game_valid_real_example_1
     assert_false(return_val)
 end test
 
+test test_is_game_valid_real_example_2
+    logical :: return_val
+
+    return_val = is_game_substring_valid(12, 13, 14, "1 green, 3 red, 6 blue")
+
+    assert_true(return_val)
+end test
+
+test test_is_game_valid_real_example_3
+    logical :: return_val
+
+    return_val = is_game_substring_valid(12, 13, 14, "3 green, 6 red")
+
+    assert_true(return_val)
+end test
+
+test test_is_game_valid_real_example_4
+    logical :: return_val
+
+    return_val = is_game_substring_valid(12, 13, 14, "3 green, 15 blue, 14 red")
+
+    assert_false(return_val)
+end test
+
 test test_is_game_valid_1_false
     logical :: return_val
 
@@ -123,7 +147,7 @@ end test
 test test_is_game_string_valid_1
     logical :: return_val
 
-    return_val = is_game_string_valid(1, 1, 20, "Game 1: 1 red, 1 green, 1 blue; 2 red, 2 green, 2 blue")
+    return_val = is_game_string_valid(2, 2, 20, "Game 1: 1 red, 1 green, 1 blue; 2 red, 2 green, 2 blue")
 
     assert_true(return_val)
 end test
@@ -150,6 +174,14 @@ test test_is_game_string_valid_real_example_3
     logical :: return_val
 
     return_val = is_game_string_valid(12, 13, 14, "Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red")
+
+    assert_false(return_val)
+end test
+
+test test_is_game_string_valid_real_example_4
+    logical :: return_val
+
+    return_val = is_game_string_valid(12, 13, 14, "Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red")
 
     assert_false(return_val)
 end test
