@@ -424,4 +424,36 @@ test test_get_first_character_index_3
     assert_equal(int_result, 8)
 end test
 
+test test_get_first_character_index_4
+    integer :: int_result
+
+    int_result = get_first_character_index("ai;bcdefg;", ';')
+
+    assert_equal(int_result, 3)
+end test
+
+test test_count_number_of_occurences_1
+    integer :: int_result
+
+    int_result = count_number_of_occurences("abcdefg;", ';')
+
+    assert_equal(int_result, 1)
+end test
+
+test test_count_number_of_occurences_2
+    integer :: int_result
+
+    int_result = count_number_of_occurences("ab;cdefg;", ';')
+
+    assert_equal(int_result, 2)
+end test
+
+test test_count_number_of_occurences_3
+    integer :: int_result
+
+    int_result = count_number_of_occurences(";ab;cdefg;", ';')
+
+    assert_equal(int_result, 3)
+end test
+
 end test_suite

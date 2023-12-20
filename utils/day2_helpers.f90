@@ -33,16 +33,15 @@ module day2_helpers
                     else
                         if (game_substring(i : i + 2) == "red") then
                             red_count = count_value
+                            count_value = 0
                         else if (game_substring(i : i + 4) == "green") then
                             green_count = count_value
+                            count_value = 0
                         else if (game_substring(i : i + 3) == "blue") then
                             blue_count = count_value
+                            count_value = 0
                         end if
                     end if
-                end if
-
-                if (blue_count > 0 .OR. red_count > 0 .OR. green_count > 0) then
-                    count_value = 0
                 end if
             end do
 
@@ -63,20 +62,30 @@ module day2_helpers
         return_value = .FALSE.
 
         ! We want to skip over the game id so get it's index and substring it out
-        colon_index = get_first_character_index(game_string, " ")
-        substringed_string = game_string(semicolon_index : )
+        colon_index = get_first_character_index(game_string, ":")
+        substringed_string = game_string((colon_index + 1) : )
 
         start_index = colon_index
+        !print *, "============================"
         do i = 1, len(substringed_string)
-            semicolon_index = get_first_character_index(game_substring, ";")
-            game_substring = substringed_string(start_index : semicolon_index)
-            start_index = semicolon_index
+            semicolon_index = get_first_character_index(substringed_string, ";")
+
+            if (semicolon_index == -1) then
+                game_substring = substringed_string
+            else
+                game_substring = substringed_string( : semicolon_index)
+            end if
+
+            !print *, game_substring
 
             return_value = is_game_substring_valid(red_limit, green_limit, blue_limit, game_substring)
-
-            if (return_value .eqv. .FALSE.) then
+            !print *, return_value
+            if (return_value .eqv. .FALSE. .or. semicolon_index == -1) then
                 exit
+            else
+                substringed_string = substringed_string(semicolon_index + 1 : )
             end if
+
         end do
 
         is_game_string_valid = return_value

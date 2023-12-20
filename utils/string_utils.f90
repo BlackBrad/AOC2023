@@ -75,14 +75,32 @@ module string_utils
             integer :: return_value    ! return out
             integer :: i
 
-            return_value = 0
+            return_value = -1
 
-            do i = 0, len(string)
+            do i = 1, len(string)
                 if (string(i : i) == ch) then
                     return_value = i
+                    exit
                 end if
             end do
 
             get_first_character_index = return_value
+        end function
+
+        integer function count_number_of_occurences(string, ch)
+            character (len = *) string ! in
+            character :: ch            ! in
+            integer :: return_value    ! return out
+            integer :: i
+
+            return_value = 0
+
+            do i = 1, len(string)
+                if (string(i : i) == ch) then
+                    return_value = return_value + 1
+                end if
+            end do
+
+            count_number_of_occurences = return_value
         end function
 end module string_utils
