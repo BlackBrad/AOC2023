@@ -19,8 +19,6 @@ module day2_helpers
             digit_2 = -1
             count_value = 0
 
-            print *, game_substring
-
             do i = 1, len(game_substring)
                 if (game_substring(i:i) /= " ") then
                     is_digit_value = is_digit(game_substring(i:i))
@@ -47,9 +45,6 @@ module day2_helpers
                 end if
             end do
 
-            print *, red_count
-            print *, green_count
-            print *, blue_count
 
             if (red_count > red_limit .OR. green_count > green_limit .OR. blue_count > blue_limit) then
                 return_value = .FALSE.
@@ -72,7 +67,6 @@ module day2_helpers
         substringed_string = game_string((colon_index + 1) : )
 
         start_index = colon_index
-        !print *, "============================"
         do i = 1, len(substringed_string)
             semicolon_index = get_first_character_index(substringed_string, ";")
 
@@ -82,11 +76,7 @@ module day2_helpers
                 game_substring = substringed_string( : semicolon_index)
             end if
 
-            !print *, game_substring
-
             return_value = is_game_substring_valid(red_limit, green_limit, blue_limit, game_substring)
-
-            !print *, return_value
 
             if ((return_value .eqv. .FALSE.) .or. (semicolon_index == -1)) then
                 exit
